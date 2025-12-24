@@ -96,7 +96,29 @@ template = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     collection.insert_one({"name": "Sample Car", "model": "2024"})
-    return template.TemplateResponse("home.html", {"request": request})
+    return template.TemplateResponse(name = "home.html", request= request)
+
+@app.get("/about", response_class=HTMLResponse)
+def about(request: Request):
+    user= []
+    row_data = coll.find()
+    for i in row_data:
+        print(i)
+        user.append(i)
+    print("User Data:")
+    print(user)
+    return template.TemplateResponse(name = "about.html", request= request, context={"user": user})
+
+# this is updated home route to pass user data to template
+# @app.get("/", response_class=HTMLResponse)
+# def home(request: Request):
+#     user = {
+#         "name": "Pradeep",
+#         "age": 24,
+#         "city": "Pune"
+#     }
+#     return template.TemplateResponse("home.html", {"request": request}, context={"user": user})
+
 
 # defining dynamic route to insert car details
 # @app.get("/{name,model}", response_class=HTMLResponse)
