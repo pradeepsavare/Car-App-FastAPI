@@ -3,10 +3,14 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 # importing pymongo for future database interactions
+# from router import a
 import pymongo
 
 
+
 app = FastAPI()
+# this is router example
+# app.include_router(a)
 
 # connecting with database using pymongo client
 client = pymongo.MongoClient("mongodb+srv://pradeepsavare:Pradeep123@cluster0.c055kzn.mongodb.net/")
