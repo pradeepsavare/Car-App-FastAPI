@@ -13,7 +13,7 @@ app = FastAPI()
 # app.include_router(a)
 
 # connecting with database using pymongo client
-client = pymongo.MongoClient("mongodb+srv://pradeepsavare:Pradeep123@cluster0.c055kzn.mongodb.net/")
+client = pymongo.MongoClient("mongodb+srv://pradeepsavare:pass@cluster0.c055kzn.mongodb.net/")
 # selecting database
 database = client["mydatabase"]
 db = client["mycompany"]
